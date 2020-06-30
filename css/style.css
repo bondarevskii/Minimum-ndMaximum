@@ -1,0 +1,29 @@
+.content {
+	padding: 10px;
+	margin-bottom: 0px;
+	background-color:rgb(240, 240, 240);
+}
+
+.logo-name {
+	padding-left:10px;
+}
+
+p.text {
+	text-indent: 20px;
+	margin: 0px;
+	text-align: justify;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+#calculator {
+	height: 500px; 
+	padding-bottom:10px;
+}
+
+#geometry {
+	height: 500px; 
+	padding-bottom:10px;
+}

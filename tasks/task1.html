@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Пример 1</title>
+
+	   	<script src="../scripts/libraries/jquery.min.js"></script>
+	    <script src="../scripts/libraries/materialize.min.js"></script>
+	    <link rel="stylesheet" href="../css/libraries/materialize.min.css">
+	    <link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body>
+		<div class="container highlight">
+			<nav>
+				<div class="nav-wrapper">
+				    <a href="../index.html" class="logo-name">Задачи максимума и минимума</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../theory.html">Теория</a></li>
+						<li><a href="./task1.html">Задача №1</a></li>
+						<li><a href="./task2.html">Задача №2</a></li>
+						<li><a href="./task3.html">Задача №3</a></li>
+						<li><a href="./task4.html">Задача №4</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="content">
+				<h5 align="center">Задача №1</h5>
+				<div class="center">
+					<div id="calculator"></div>
+				</div>
+				<big>	
+					<h5 align="center">Условие задачи</h5>
+					<p class="text">
+						Найти наибольшее и наименьшее значения функции
+						\(у = 1–2х - х^2,\) заданной на отрезке  [–2; 2].
+					</p>
+					<h5 align="center">Решение задачи</h5>
+					<p class="text">
+						Находим производную:
+						$$y'=-2-2x,$$
+						Корень данного уравнения \(х = –1\).<br>
+						Вычисляем значения функции \(у\) в критической точке и на концах отрезка [-2; 2]:<br>
+						$$y(-2)=1$$
+						$$y(-1)=2$$
+						$$y(2)=-7$$
+						Получаем ответ:
+						$$y_{наиб} = 2,  y_{наим} = –7$$
+						Заметим, что наибольшее значение достигается в точке локального максимума, а наименьшее значение функция принимает в точке на правом конце отрезка.
+					</p>
+				</big>
+			</div>
+			<footer class="page-footer" style="margin-top:0px">
+	          <div class="container">
+	            <div class="row">
+	              <div class="col l6 s12">
+	                <h5 class="white-text">Подвал страницы.</h5>
+	                <p class="grey-text text-lighten-4">Здесь вы можете выбрать задачу, тыкнув на нужную ссылку.</p>
+	              </div>
+	              <div class="col l4 offset-l2 s12">
+	                <ul>
+	                  <li><a class="grey-text text-lighten-3" href="./task1.html">Задача 1</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task2.html">Задача 2</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task3.html">Задача 3</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task4.html">Задача 4</a></li>
+	                </ul>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="footer-copyright">
+	            <div class="container">
+	            	© 2020 Copyright
+	            </div>
+	          </div>
+	        </footer>
+		</div>
+		<script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+		<script>
+			var elt = document.getElementById('calculator');
+			var calculator = Desmos.GraphingCalculator(elt);
+			calculator.setExpression({ id: 'graph1', latex: 'y=1-2x-x^2 \\left\\{-2\\le x\\le2\\right\\}' });
+		</script>
+    	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</body>
+</html>

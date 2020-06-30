@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Пример 3</title>
+
+	   	<script src="../scripts/libraries/jquery.min.js"></script>
+	    <script src="../scripts/libraries/materialize.min.js"></script>
+	    <link rel="stylesheet" href="../css/libraries/materialize.min.css">
+	    <link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body>
+		<div class="container highlight">
+			<nav>
+				<div class="nav-wrapper">
+				    <a href="../index.html" class="logo-name">Задачи максимума и минимума</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../theory.html">Теория</a></li>
+						<li><a href="./task1.html">Задача №1</a></li>
+						<li><a href="./task2.html">Задача №2</a></li>
+						<li><a href="./task3.html">Задача №3</a></li>
+						<li><a href="./task4.html">Задача №4</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="content">
+				<h5 align="center">Задача №3</h5>
+				<div class="center">
+					<div id="geometry"></div>
+				</div>
+				<big>	
+					<h5 align="center">Условие задачи</h5>
+					<p class="text">
+					На странице книги печатный текст должен занимать (вместе с промежутками между строк) 192 \(см^2\). Верхнее и нижнее поля занимают по 4 см, левое и правое – по 3 см. 
+					Если принимать во внимание только экономию бумаги, то каковы должны быть наиболее выгодные размеры страницы?
+					</p>
+					<h5 align="center">Решение задачи</h5>
+					<p class="text">
+						Обозначим за x ширину области печати (оранжевый отрезок) (можно обозначить высоту – получится равноценное решение). Тогда высота области печати(зеленый отрезок):
+						$$\frac{192}{x}см.$$
+						Учитывая известные значения полей, найдём ширину всего листа:
+						$$l=x+3+3=(x+6)см.$$
+						И его высоту: \(h=\frac{192}{x}+4+4=(\frac{192}{x}+8)см.\)<br>
+						Составим функцию площади листа и сразу подготовим её для дифференцирования:
+						$$s(x)=l*h=(x+6)+(\frac{192}{x}+8)=192+\frac{6*192}{x}+8x+48=240+8x+\frac{6*192}{x}.$$
+						Найдём критические точки:
+						$$s'(x)=(240+8x+\frac{6*192}{x})'=0+8-\frac{6*192}{x^2}=\frac{8x^2-6*192}{x^2}=\frac{8(x^2-144)}{x^2}=0.$$
+						Точка \(x=-12\) не удовлетворяет геометрическому смыслу задачи, а вот значение \(x=12\) куда более интересно.<br>
+						Проверим выполнение достаточного условия экстремума:
+						$$s''(x)=(8-\frac{6*192}{x^2})'=0-6*192(x^{-2})'=-6*192*(-2)*x^{-3}=\frac{2*6*192}{x^3},$$
+						$$s''(12)=\frac{2*6*192}{12^3}=const>0,$$
+						значит, функция  достигает минимума в точке \(x=12\).<br>
+						Таким образом, размеры оптимального листа:
+						$$l^{.}=(x+6)=(12+6)=18см;$$
+						$$h^{.}=(\frac{192}{x}+8)=(\frac{192}{12}+8)=(16+8)=24см;$$
+						При этом минимальная площадь:
+						$$S_{min}=S(12)=l^{.}*h^{.}=18*24=432см^2$$
+						<strong class="strong">Ответ:</strong><br>
+						Ширина оптимальной страницы: 18см, её высота: 24см; при этом минимальная площадь: \(432см^2\). 
+					</p>
+				</big>
+			</div>
+			<footer class="page-footer" style="margin-top:0px">
+	          <div class="container">
+	            <div class="row">
+	              <div class="col l6 s12">
+	                <h5 class="white-text">Подвал страницы.</h5>
+	                <p class="grey-text text-lighten-4">Здесь вы можете выбрать задачу, тыкнув на нужную ссылку.</p>
+	              </div>
+	              <div class="col l4 offset-l2 s12">
+	                <ul>
+	                  <li><a class="grey-text text-lighten-3" href="./task1.html">Задача 1</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task2.html">Задача 2</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task3.html">Задача 3</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task4.html">Задача 4</a></li>
+	                </ul>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="footer-copyright">
+	            <div class="container">
+	            	© 2020 Copyright
+	            </div>
+	          </div>
+	        </footer>
+		</div>
+		<script src="https://www.desmos.com/api/v1.5/geometry.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+		<script>
+			var elt = document.getElementById('geometry');
+			var geometry = Desmos.Geometry(elt);
+    		var state = {"version":"4","objects":{"0":{"id":"0","type":"segment","hidden":false,"parents":{"point1":"1","point2":"2"},"color":"#2d70b3"},"1":{"hidden":false,"type":"point","x":-1.3445589344056295,"y":2.0385021853009544,"parents":{},"id":"1","color":"#6042a6","locked":true,"label":"B","showLabel":true},"2":{"hidden":false,"type":"point","x":1.8562452877607436,"y":2.0385021853009544,"parents":{},"id":"2","color":"#6042a6","locked":true,"label":"C","showLabel":true},"3":{"id":"3","type":"segment","hidden":false,"parents":{"point1":"1","point2":"5"},"color":"#2d70b3"},"5":{"hidden":false,"type":"point","x":-1.3123900477506911,"y":-2.1595375231685097,"parents":{},"id":"5","color":"#6042a6","locked":true,"label":"A","showLabel":true},"6":{"id":"6","type":"segment","hidden":false,"parents":{"point1":"2","point2":"8"},"color":"#2d70b3","label":"h","showLabel":true},"8":{"hidden":false,"type":"point","x":1.904498617743151,"y":-2.1595375231685097,"parents":{},"id":"8","color":"#6042a6","locked":true,"label":"D","showLabel":true},"9":{"id":"9","type":"segment","hidden":false,"parents":{"point1":"5","point2":"8"},"color":"#2d70b3","label":"l","showLabel":true},"21":{"id":"21","type":"segment","hidden":false,"parents":{"point1":"22","point2":"23"},"color":"#2d70b3"},"22":{"hidden":false,"type":"point","x":-0.701181201306861,"y":1.4272932774998426,"parents":{},"id":"22","color":"#6042a6","locked":true,"label":"B1","showLabel":true},"23":{"hidden":false,"type":"point","x":-0.6850967579793918,"y":-1.3874843048072696,"parents":{},"id":"23","color":"#6042a6","locked":true,"label":"A1","showLabel":true},"24":{"id":"24","type":"segment","hidden":false,"parents":{"point1":"22","point2":"26"},"color":"#2d70b3"},"26":{"hidden":false,"type":"point","x":1.100276451369691,"y":1.4272932774998426,"parents":{},"id":"26","color":"#6042a6","locked":true,"label":"C1","showLabel":true},"27":{"id":"27","type":"segment","hidden":false,"parents":{"point1":"26","point2":"28"},"color":"#2d70b3"},"28":{"hidden":false,"type":"point","x":1.132445338024631,"y":-1.3713998614798,"parents":{},"id":"28","color":"#6042a6","locked":true,"label":"D1","showLabel":true},"29":{"id":"29","type":"segment","hidden":false,"parents":{"point1":"28","point2":"23"},"color":"#2d70b3"},"34":{"id":"34","type":"segment","hidden":false,"parents":{"point1":"35","point2":"36"},"color":"#c74440","label":"3","showLabel":true},"35":{"hidden":false,"type":"glider","t":0.6781211155322711,"parents":{"host":"3"},"id":"35","color":"#6042a6","locked":true},"36":{"hidden":false,"type":"glider","t":0.7942924312675509,"parents":{"host":"21"},"id":"36","color":"#6042a6","locked":true},"42":{"id":"42","type":"segment","hidden":false,"parents":{"point1":"43","point2":"44"},"color":"#c74440","label":"4","showLabel":true},"43":{"hidden":false,"type":"glider","t":0.27470634299138685,"parents":{"host":"29"},"id":"43","color":"#6042a6","locked":true},"44":{"hidden":false,"type":"glider","t":0.605,"parents":{"host":"9"},"id":"44","color":"#6042a6","locked":true},"45":{"id":"45","type":"segment","hidden":false,"parents":{"point1":"43","point2":"47"},"color":"#388c46","label":"192/x","showLabel":true},"47":{"hidden":false,"type":"glider","t":0.7232142857142856,"parents":{"host":"24"},"id":"47","color":"#6042a6","locked":true},"53":{"id":"53","type":"segment","hidden":false,"parents":{"point1":"36","point2":"55"},"color":"#fa7e19","label":"x","showLabel":true},"55":{"hidden":false,"type":"glider","t":0.7930647291941871,"parents":{"host":"27"},"id":"55","color":"#6042a6","locked":true}},"viewport":{"centerX":0,"centerY":0,"size":10},"customTools":{},"graphSettings":{"showGrid":false,"showAxes":false,"showAxisNumbers":false}}
+			geometry.setState(state);
+			geometry.setDefaultState(state);
+			//console.log(JSON.stringify(geometry.getState()));
+		</script>
+    	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</body>
+</html>

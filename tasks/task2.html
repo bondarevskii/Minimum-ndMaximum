@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Пример 2</title>
+
+	   	<script src="../scripts/libraries/jquery.min.js"></script>
+	    <script src="../scripts/libraries/materialize.min.js"></script>
+	    <link rel="stylesheet" href="../css/libraries/materialize.min.css">
+	    <link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body>
+		<div class="container highlight">
+			<nav>
+				<div class="nav-wrapper">
+				    <a href="../index.html" class="logo-name">Задачи максимума и минимума</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../theory.html">Теория</a></li>
+						<li><a href="./task1.html">Задача №1</a></li>
+						<li><a href="./task2.html">Задача №2</a></li>
+						<li><a href="./task3.html">Задача №3</a></li>
+						<li><a href="./task4.html">Задача №4</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="content">
+				<h5 align="center">Задача №2</h5>
+				<div class="center">
+					<div id="calculator"></div>
+				</div>
+				<big>	
+					<h5 align="center">Условие задачи</h5>
+					<p class="text">
+						Найти наименьшее расстояние между параболой \(y=x^2\) и прямой \(x-y-2=0\).
+					</p>
+					<h5 align="center">Решение задачи</h5>
+					<p class="text">
+						Поскольку условие запрашивает наименьшее расстояние, то, очевидно, нам нужно составить функцию \(ρ(x)\) расстояния между параболой \(y=x^2\) и прямой  \(x-y-2=0\). За аргумент этой функции принимаем абсциссу точки \(M(x;x^2)\), которая принадлежит параболе и «свободно перемещается по ней»:<br>
+						Используем формулу расстояния от точки \(M(x_0;y_0)\) до прямой \(d: Ax+By+C=0\):
+						$$ρ(M;d)=⁡\frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}},$$
+						В нашем случае \(M(x_0;y_0)=M(x;x^2)\)&emsp;(т.е.&emsp;\(x_0=x, y_0=x^2\));
+						$$d:x-y-2=0&emsp;(A=1, B=-1).$$
+						Таким образом, функция расстояния между параболой и прямой, зависящая от абсциссы точки параболы принимает вид:<br>
+						$$ρ(x)=ρ(M;x-y-2=0)=\frac{|1x-1x^2+2|}{\sqrt{1^2+(-1)^2}}=\frac{1}{\sqrt{2}}|x-x^2-2|.$$
+						Дифференцируем по обычным правилам, невзирая на модуль:
+						$$ρ'(x)=(\frac{1}{\sqrt{2}}|x-x^2-2|)'=\frac{1}{\sqrt{2}}|1-2x|=0$$
+						получаем критическую точку:
+						$$x=\frac{1}{2}$$
+						Проверим выполнение достаточного условия экстремума. Оцените, насколько второе достаточное условие приятнее и удобнее 1-го:
+						$$ρ'(x)=(\frac{1}{\sqrt{2}}|1-2x|)'=\frac{1}{\sqrt{2}}|0-2|=\frac{2}{\sqrt{2}} = const > 0 ∀x$$
+						В частности:
+						$$ρ''(\frac{1}{2})=\frac{2}{\sqrt{2}} = const > 0$$
+						Следовательно функция ρ(x) достигает минимума в точке \(x=\frac{1}{2}\)
+						$$ρ_{min}=ρ(\frac{1}{2}) = \frac{1}{\sqrt{2}}|\frac{1}{2}-\frac{1}{4}-2|=\frac{1}{\sqrt{2}}\frac{7\sqrt{2}}{4}$$
+						<strong class="strong">Ответ:</strong>
+						$$ρ_{min}=\frac{1}{\sqrt{2}}\frac{7\sqrt{2}}{4}$$
+					</p>
+				</big>
+				<div class="center"><button class="waves-effect waves-light btn" id="showLine">Показать отрезок решения на графике</button></div>
+			</div>
+			<footer class="page-footer" style="margin-top:0px">
+	          <div class="container">
+	            <div class="row">
+	              <div class="col l6 s12">
+	                <h5 class="white-text">Подвал страницы.</h5>
+	                <p class="grey-text text-lighten-4">Здесь вы можете выбрать задачу, тыкнув на нужную ссылку.</p>
+	              </div>
+	              <div class="col l4 offset-l2 s12">
+	                <ul>
+	                  <li><a class="grey-text text-lighten-3" href="./task1.html">Задача 1</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task2.html">Задача 2</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task3.html">Задача 3</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task4.html">Задача 4</a></li>
+	                </ul>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="footer-copyright">
+	            <div class="container">
+	            	© 2020 Copyright
+	            </div>
+	          </div>
+	        </footer>
+		</div>
+		<script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+		<script>
+			var elt = document.getElementById('calculator');
+			var calculator = Desmos.GraphingCalculator(elt);
+			calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
+	  		calculator.setExpression({ id: 'graph2', latex: 'x-y-2=0' });
+			document.getElementById('showLine').addEventListener("click", function (){
+				calculator.setExpression({ id: 'graph3', latex: 'y=-(x-3/4) \\left\\{\\frac{1}{2}\\le x\\le1.375\\right\\}'});
+			});
+		</script>
+    	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</body>
+</html>

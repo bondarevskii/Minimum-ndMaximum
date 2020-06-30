@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Пример 4</title>
+
+	   	<script src="../scripts/libraries/jquery.min.js"></script>
+	    <script src="../scripts/libraries/materialize.min.js"></script>
+	    <link rel="stylesheet" href="../css/libraries/materialize.min.css">
+	    <link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body>
+		<div class="container highlight">
+			<nav>
+				<div class="nav-wrapper">
+				    <a href="../index.html" class="logo-name">Задачи максимума и минимума</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../theory.html">Теория</a></li>
+						<li><a href="./task1.html">Задача №1</a></li>
+						<li><a href="./task2.html">Задача №2</a></li>
+						<li><a href="./task3.html">Задача №3</a></li>
+						<li><a href="./task4.html">Задача №4</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="content">
+				<h5 align="center">Задача №4</h5>
+				<div class="center">
+					<div id="geometry"></div>
+				</div>
+				<big>	
+					<h5 align="center">Условие задачи</h5>
+					<p class="text">
+						Определите размеры открытого бассейна объемом  \(V=32м^3\), имеющего форму прямоугольного параллелепипеда с квадратным дном, на облицовку стен и дна которого уйдет наименьшее количество материала.
+					</p>
+					<h5 align="center">Решение задачи</h5>
+					<p class="text">
+						Размеры бассейна однозначно определяются его длиной и шириной, которые в данном случае совпадают (по условию дно квадратное) и глубиной (высотой стенки). Требуется найти такие размеры бассейна, чтобы на облицовку его поверхности ушло наименьшее количество материала (например, плитки). Из чего следует, что нам нужно составить функцию суммарной площади дна и 4 стен. Изобразим на чертеже развёртку бассейна – его дно и 4 стенки, которые аккуратно лежат рядышком:<br>
+						За «икс» здесь, конечно же, напрашивается обозначить сторону квадрата. Тогда площадь дна равна \(x^2\). Осталось выразить \(h\) – высоту стены и найти её площадь \(xh\).<br>
+						Тогда объём бассейна равен:
+						$$V=x^2h$$
+						В нашем случае: \(x^2h=32 => h=\frac{32}{x^2}\)
+						Составим функцию суммарной площади дна и четырёх одинаковых стен бассейна:
+						$$s(x)=x^2+4xh=x^2+4x\frac{32}{x^2}=x^2+\frac{128}{x}$$
+						Найдём критические точки:
+						$$s'(x)=(x^2+\frac{128}{x})'=2x-\frac{128}{x^2}=\frac{2(x^3-64)}{x^2}=0$$
+						\(x=4\)- критическая точка.<br>
+						Проверим выполнение достаточного условия экстремума:
+						$$s''(x)=(2x-\frac{128}{x^2})'=2+\frac{128*2}{x^3}$$
+						$$s''(4)=2+\frac{128*2}{4^3}=2+4=6>0,$$
+						значит, функция \(s(x)\) достигает минимума в точке \(x=4\).<br>
+						<strong class="strong">Ответ:</strong><br>
+						Cторона оптимального бассейна 4м, глубина 2м, при этом минимальная площадь облицовки \(48м^2\)
+					</p>
+				</big>
+			</div>
+			<footer class="page-footer" style="margin-top:0px">
+	          <div class="container">
+	            <div class="row">
+	              <div class="col l6 s12">
+	                <h5 class="white-text">Подвал страницы.</h5>
+	                <p class="grey-text text-lighten-4">Здесь вы можете выбрать задачу, тыкнув на нужную ссылку.</p>
+	              </div>
+	              <div class="col l4 offset-l2 s12">
+	                <ul>
+	                  <li><a class="grey-text text-lighten-3" href="./task1.html">Задача 1</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task2.html">Задача 2</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task3.html">Задача 3</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./task4.html">Задача 4</a></li>
+	                </ul>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="footer-copyright">
+	            <div class="container">
+	            	© 2020 Copyright
+	            </div>
+	          </div>
+	        </footer>
+		</div>
+		<script src="https://www.desmos.com/api/v1.5/geometry.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+		<script>
+			var elt = document.getElementById('geometry');
+			var geometry = Desmos.Geometry(elt);
+    		var state = {"version":"4","objects":{"56":{"id":"56","type":"segment","hidden":false,"parents":{"point1":"57","point2":"58"},"color":"#2d70b3","label":"x","showLabel":true},"57":{"hidden":false,"type":"point","x":-2.5348077406383513,"y":2.028851543847386,"parents":{},"id":"57","color":"#6042a6","locked":true},"58":{"hidden":false,"type":"point","x":-2.518723297310883,"y":-2.1209348346396704,"parents":{},"id":"58","color":"#6042a6","locked":true},"90":{"hidden":false,"type":"point","x":2.2101030409650644,"y":-2.1370192779671395,"parents":{},"id":"90","color":"#6042a6","locked":true},"91":{"id":"91","type":"segment","hidden":false,"parents":{"point1":"90","point2":"58"},"color":"#2d70b3"},"95":{"id":"95","type":"segment","hidden":false,"parents":{"point1":"57","point2":"97"},"color":"#2d70b3","label":"h","showLabel":true},"97":{"hidden":false,"type":"point","x":-3.7411409901985415,"y":2.028851543847386,"parents":{},"id":"97","color":"#6042a6","locked":true},"98":{"id":"98","type":"segment","hidden":false,"parents":{"point1":"97","point2":"100"},"color":"#2d70b3"},"100":{"hidden":false,"type":"point","x":-3.7411409901985415,"y":-2.1209348346396704,"parents":{},"id":"100","color":"#6042a6","locked":true},"101":{"id":"101","type":"segment","hidden":false,"parents":{"point1":"100","point2":"58"},"color":"#2d70b3"},"111":{"hidden":false,"type":"glider","t":0.26085885839232137,"parents":{"host":"91"},"id":"111","color":"#6042a6","locked":true},"117":{"id":"117","type":"segment","hidden":false,"parents":{"point1":"57","point2":"119"},"color":"#2d70b3","label":"h","showLabel":true},"119":{"hidden":false,"type":"point","x":-2.5348077406383513,"y":2.993918143495539,"parents":{},"id":"119","color":"#6042a6","locked":true},"131":{"hidden":false,"type":"point","x":0.923347574767531,"y":2.9778337001680697,"parents":{},"id":"131","color":"#6042a6","locked":true},"135":{"id":"135","type":"segment","hidden":false,"parents":{"point1":"119","point2":"131"},"color":"#2d70b3"},"146":{"id":"146","type":"segment","hidden":false,"parents":{"point1":"58","point2":"148"},"color":"#2d70b3"},"148":{"hidden":false,"type":"point","x":-2.5348077406383513,"y":-3.1342547642702305,"parents":{},"id":"148","color":"#6042a6","locked":true},"149":{"id":"149","type":"segment","hidden":false,"parents":{"point1":"148","point2":"150"},"color":"#2d70b3"},"150":{"hidden":false,"type":"point","x":0.9876853480774059,"y":-3.1181703209427614,"parents":{},"id":"150","color":"#6042a6","locked":true},"151":{"id":"151","type":"segment","hidden":false,"parents":{"point1":"150","point2":"111"},"color":"#2d70b3"},"157":{"id":"157","type":"segment","hidden":false,"parents":{"point1":"57","point2":"159"},"color":"#2d70b3","label":"x","showLabel":true},"159":{"hidden":false,"type":"point","x":0.9233475747675302,"y":2.0192007796792533,"parents":{},"id":"159","color":"#6042a6","locked":true},"160":{"id":"160","type":"segment","hidden":false,"parents":{"point1":"159","point2":"111"},"color":"#2d70b3"},"162":{"id":"162","type":"segment","hidden":false,"parents":{"point1":"159","point2":"131"},"color":"#2d70b3"},"165":{"id":"165","type":"segment","hidden":false,"parents":{"point1":"159","point2":"167"},"color":"#2d70b3"},"167":{"hidden":false,"type":"point","x":2.1779341543101287,"y":2.0192007796792533,"parents":{},"id":"167","color":"#6042a6","locked":true},"168":{"id":"168","type":"segment","hidden":false,"parents":{"point1":"167","point2":"90"},"color":"#2d70b3"}},"viewport":{"centerX":0,"centerY":0,"size":10},"customTools":{},"graphSettings":{"showGrid":false,"showAxes":false,"showAxisNumbers":false}}
+			geometry.setState(state);
+			geometry.setDefaultState(state);
+			//console.log(JSON.stringify(geometry.getState()));
+		</script>
+    	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Теория</title>
+
+	   	<script src="./scripts/libraries/jquery.min.js"></script>
+	    <script src="./scripts/libraries/materialize.min.js"></script>
+	    <link rel="stylesheet" href="./css/libraries/materialize.min.css">
+	    <link rel="stylesheet" href="./css/style.css">
+	</head>
+	<body>
+		<div class="container highlight">
+			<nav>
+				<div class="nav-wrapper">
+				    <a href="./index.html" class="logo-name">Задачи максимума и минимума</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="./index.html">Главная</a></li>
+						<li><a href="./theory.html">Теория</a></li>
+						<li><a href="./tasks/task1.html">Задача №1</a></li>
+						<li><a href="./tasks/task2.html">Задача №2</a></li>
+						<li><a href="./tasks/task3.html">Задача №3</a></li>
+						<li><a href="./tasks/task4.html">Задача №4</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="content">
+				<h5 class="center">Определения</h5>
+				<big>
+					<p class="text">
+						<strong class="strong">Экстремум</strong> (лат. extremum — крайний) в математике – максимальное или минимальное значение функции на заданном множестве. Точка, в которой достигается экстремум, называется точкой экстремума. Соответственно, если достигается минимум – точка экстремума называется точкой минимума, а если максимум – точкой максимума. В математическом анализе выделяют также понятие локальный экстремум (соответственно минимум или максимум).
+					</p>
+					<p class="text">
+						Функция \(y=f(x)\) называется <strong class="strong">возрастающей</strong> (<strong class="strong">убывающей</strong>) на некотором интервале [a, b], если \(∀x_1,x_2∈[a,b]:x_1&lt;x_2\) выполняется неравенство:
+						$$f(x_1)&ltf(x_2)&emsp;(f(x_1)&gt;f(x_2))$$
+					</p>
+					<p class="text">
+						Пусть функция \(y=f(x)\) определена на некоторой δ-окрестности точки \(x_0\), где δ&gt;0. Говорят, что функция f(x) имеет <strong class="strong">локальный максимум</strong>(<strong class="strong">минимум</strong>) в точке \(x_0\), если
+						$$∀x∈(x_0-δ;x_0+δ):x≠x_0,$$
+						выполняется неравенство:
+						$$f(x)≤f(x_0 )&emsp;(f(x)≥f(x_0 )).$$
+					</p>
+					<p class="text">
+						Пусть дана функция \(f:M ⊂ R→R\), и точка \(x_0∈M\). Тогда, точка \(x_0\) называется <strong class="strong">глобальным (абсолютным) максимумом </strong>(<strong class="strong">минимумом</strong>), если
+						$$∀x∈M:f(x)≤f(x_0)&emsp;(f(x)≥f(x_0)),$$
+						<strong class="strong">Глобальный максимум</strong>(<strong class="strong">минимум</strong>) функции на промежутке называется глобальным экстремумом.<br>
+						Замечание: глобальный экстремум может достигаться либо в точках локального экстремума, либо на концах отрезка.
+					</p>
+					<h5 class="center">Необходимые условия экстремума</h5>
+					<p class="text">
+						Пусть точка \(x_0\) является точкой экстремума функции \(f(x)\). Тогда либо производная \(f' (x_0 )\) не существует, либо \(f' (x_0 )=0\).
+						Такие точки называются критическими, причем сама функция в критической точке определена. Экстремумы функции следует искать среди её критических точке. Например, функция \(f(x)= x^3\)
+					</p>
+					<div id="calculator"></div>
+					<h5 class="center">Достаточные условия экстремума</h5>
+					<p class="text">
+						<strong class="strong">Первое достаточное условие:</strong><br>
+						Пусть для функции \(y=f(x)\) выполнены следующие условия:
+						<ol>
+						  <li>Функция непрерывна в окрестности точки \(x_0\);</li>
+						  <li>\(f'(x_0 )=0\) или \(f'(x_0)\)  не существует.(\(x_0\) – критическая точка);</li>
+						  <li>Производная \(f'(x_0 )\) при переходе через \(x_0\) меняет свой знак.</li>
+						</ol>
+						Тогда точка \(x_0\) экстремум функции \(y=f(x)\). Причём, если производная \(f' (x_0)\) при переходе через \(x_0\) поменяла знак с плюса на минус, то \(x_0\) - точка максимума, если наоборот, то \(x_0\) - точка минимума.<br>
+						Если производная \(f'(x_0)\) не меняет знак при переходе через \(x_0\), то в точке \(x_0\) экстремума нет.
+					</p>
+					<p class="text">
+						<strong class="strong">Второе достаточное условие:</strong><br>
+						Пусть для функции \(y=f(x)\) выполнены следующие условия:<br>
+						<ol>
+						  <li>Функция непрерывна в окрестности точки \(x_0\);</li>
+						  <li>\(f'(x_0)=0\);</li>
+						  <li>\(f''(x_0)≠0\).</li>
+						</ol>
+						Тогда точка \(x_0\) экстремум функции \(y=f(x)\). Причём, если \(f'' (x_0 )&gt;0\), то \(x_0\) - точка минимума, если \(f'' (x_0 )&lt;0\), то \(x_0\) - точка максимума.
+					</p>
+					<h5 class="center">Лемма Ферма</h5>
+					<p class="text">
+						<strong class="strong">Односторонние производные</strong> – производные, где вместо соответствующего предела используется односторонний (левосторонний или правосторонний).
+						Обозначения:
+						<ol>
+							<li>\(f_+'(x)\) - правосторонняя производная.</li>
+							<li>\(f_-'(x)\) - левосторонняя производная.</li>
+						</ol>
+					</p>
+					<p class="text">
+						<strong class="strong">Лемма Ферма:</strong><br>
+						Пусть функция \(f:M ⊂ R→R\) имеет локальный экстремум в \(x_0∈M\). Пусть также существуют односторонние производные \(f_+'(x_0),f_-'(x_0)\) конечные или бесконечные. Тогда:<br>
+						Если \(x_0\) - точка локального максимума, то
+						$$f_+'(x_0)≤0,f_-'(x_0)≥0,$$
+						Если \(x_0\) - точка локального минимума, то
+						$$f_+'(x_0)≥0,f_-'(x_0)≤0.$$
+						<em>Доказательство:</em><br>
+						Предположим, что \(f(x_0)=\max\limits_{(x∈(a,b))⁡}f(x)\). Тогда \(∀x∈(a,b):f(x)≤f(x_0)\).<br>
+						Следовательно:
+						$$f_-'(x_0)=\lim\limits_{(x→x_0-0)}⁡\frac{f(x)-f(x_0)}{x-x_0}≥0,$$
+						$$f_+'(x_0)=\lim\limits_{(x→x_0+0)}⁡\frac{f(x)-f(x_0)}{x-x_0}≤0,$$
+						Если производная \(f'(x_0)\) определена, то получаем
+						$$0≤f_-'(x_0)=f'(x_0)=f_+'(x_0)≤0,$$
+						то есть \(f'(x_0)=0\)<br>
+						Если \(f(x_0 )=\min\limits_{(x∈(a,b))⁡}f(x)\), то доказательство аналогично.<br>
+						<em>Замечание:</em><br>
+						Геометрический смысл данной леммы заключается в том, что касательная к точке экстремума есть прямая параллельная оси абсцисс.
+					</p>
+				</big>
+			</div>
+			<footer class="page-footer" style="margin-top:0px">
+	          <div class="container">
+	            <div class="row">
+	              <div class="col l6 s12">
+	                <h5 class="white-text">Подвал страницы.</h5>
+	                <p class="grey-text text-lighten-4">Здесь вы можете выбрать задачу, тыкнув на нужную ссылку.</p>
+	              </div>
+	              <div class="col l4 offset-l2 s12">
+	                <ul>
+	                  <li><a class="grey-text text-lighten-3" href="./tasks/task1.html">Задача 1</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./tasks/task2.html">Задача 2</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./tasks/task3.html">Задача 3</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="./tasks/task4.html">Задача 4</a></li>
+	                </ul>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="footer-copyright">
+	            <div class="container">
+	            	© 2020 Copyright
+	            </div>
+	          </div>
+	        </footer>
+		</div>
+		<script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+		<script>
+		  var elt = document.getElementById('calculator');
+		  var calculator = Desmos.GraphingCalculator(elt);
+		  calculator.setExpression({ id: 'graph1', latex: 'y=x^3' });
+		</script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</body>
+</html>
